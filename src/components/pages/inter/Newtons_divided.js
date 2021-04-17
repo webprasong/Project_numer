@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import axios from 'axios';
 
 export default function Newtons_divided() {
 
@@ -7,11 +8,18 @@ export default function Newtons_divided() {
     const [showPoly, setShowPoly] = useState(false)
     const [xfind, setXfind] = useState()
         
-    let x = [0,20000,40000,60000,80000]
-    let y = [9.81,9.7487,9.6879,9.6879,9.5682]
-    let xfindd = 42000;
+    let x,y,xfindd;
 
-    const example = () => {
+    const example = async () => {
+        await axios.get('http://localhost:5000/api/exs/NewtonsDivided')
+        .then(res => {
+            x = res.data.x
+            y = res.data.y
+            xfindd = res.data.xfind
+        })
+        .catch(error => {
+            alert("API is turned off.")
+        })
         if(xl == 2){
             document.getElementById(String(0)).value = x[0];
             document.getElementById("y"+String(0)).value = y[0];

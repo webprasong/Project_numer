@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import TableIteration from '../../contents/TableIteration';
+import axios from 'axios';
 
 var linSystem = require("linear-equation-system");
 
@@ -20,10 +21,17 @@ export default function Guass_Jordan() {
         }
     ];
         
-    let exmatrix = [[-2,3,1],[3,4,-5],[1,-2,1]];
-    let exb = [9,0,-4];
+    let exmatrix,exb;
 
-    const example = () => {
+    const example = async () => {
+        await axios.get('http://localhost:5000/api/exs/GuassJordan')
+        .then(res => {
+            exmatrix = res.data.matrix
+            exb = res.data.matrixB
+        })
+        .catch(error => {
+            alert("API is turned off.")
+        })
         if(xl == 3){
             for(let i=0;i<xl;i++){
                 let tmp = [];

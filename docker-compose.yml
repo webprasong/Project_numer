@@ -1,0 +1,15 @@
+version: "3.7"
+
+services: 
+    project:
+        container_name: numer2
+        build: .
+        restart: always
+        ports:
+            - 3000:3000
+    server:
+        container_name: server2
+        build: ./Server
+        restart: always
+        ports:
+            - 5000:5000

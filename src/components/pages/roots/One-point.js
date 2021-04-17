@@ -3,6 +3,7 @@ import Graph from '../../contents/Graph';
 import { functionx } from '../../functionx';
 import { addStyles, EditableMathField } from "react-mathquill";
 import TableIteration from '../../contents/TableIteration';
+import axios from 'axios';
 addStyles()
 
 export default function One_Point() {
@@ -39,9 +40,15 @@ export default function One_Point() {
         }
     ];
 
-    const example = () => {
-        setLatex("(1/4)+(x/2)")
-        setXold(0)
+    const example = async () => {
+        await axios.get('http://localhost:5000/api/exs/OnePoint')
+        .then(res => {
+            setLatex(res.data.latex)
+            setXold(res.data.xold)
+        })
+        .catch(error => {
+            alert("API is turned off.")
+        })
     }
 
     const findfx = (x) => {

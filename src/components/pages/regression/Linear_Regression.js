@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import axios from 'axios';
 
 const regression = require("regression");
 
@@ -9,11 +10,18 @@ export default function Linear_Regression() {
     const [xfind, setXfind] = useState()
     const [ressult, setRessult] = useState(0)
         
-    let x = [10,15,20,30,40,50,60,70,80]
-    let y = [5,9,15,18,22,30,35,38,43]
-    let xfindd = 65;
+    let x,y,xfindd;
 
-    const example = () => {
+    const example = async () => {
+        await axios.get('http://localhost:5000/api/exs/LinearRegression')
+        .then(res => {
+            x = res.data.x
+            y = res.data.y
+            xfindd = res.data.xfind
+        })
+        .catch(error => {
+            alert("API is turned off.")
+        })
         if(xl == 9){
             for(let i = 0;i<xl;i++){
                 document.getElementById(String(i)).value = x[i];

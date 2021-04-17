@@ -3,6 +3,7 @@ import Graph from '../../contents/Graph';
 import { functionx } from '../../functionx';
 import { addStyles, EditableMathField } from "react-mathquill";
 import TableIteration from '../../contents/TableIteration';
+import axios from 'axios';
 addStyles()
 
 export default function False_Position() {
@@ -45,10 +46,16 @@ export default function False_Position() {
         }
     ];
 
-    const example = () => {
-        setLatex("(1/x)-43")
-        setXl(0.02)
-        setXr(0.03)
+    const example = async () => {
+        await axios.get('http://localhost:5000/api/exs/FalsePosition')
+        .then(res => {
+            setLatex(res.data.latex)
+            setXl(res.data.xl)
+            setXr(res.data.xr)
+        })
+        .catch(error => {
+            alert("API is turned off.")
+        })
     }
 
     const findfx = (x) => {

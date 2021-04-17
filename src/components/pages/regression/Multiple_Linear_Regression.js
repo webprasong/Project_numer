@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import axios from 'axios';
 
 var multiregress = require("multiregress")
 
-export default function Linear_Regression() {
+export default function Multiple_Linear_Regression() {
 
     const [xl, setXl] = useState(2)
     const [numx, setNumx] = useState(2)
@@ -10,17 +11,18 @@ export default function Linear_Regression() {
     const [xfind, setXfind] = useState()
     const [ressult, setRessult] = useState(0)
         
-    let x = [[1,0,1],
-             [0,1,3],
-             [2,4,1],
-             [3,2,2],
-             [4,1,5],
-             [2,3,3],
-             [1,6,4]]
-    let y = [4,-5,-6,0,-1,-7,-20]
-    let xfindd = [1,1,1];
+    let x,y,xfindd;
 
-    const example = () => {
+    const example = async () => {
+        await axios.get('http://localhost:5000/api/exs/MultipleLinearRegression')
+        .then(res => {
+            x = res.data.x
+            y = res.data.y
+            xfindd = res.data.xfindArray
+        })
+        .catch(error => {
+            alert("API is turned off.")
+        })
         if(xl == 7 && numx == 3){
             for(let i = 0;i<xl;i++){
                 for(let j=0;j<numx;j++){

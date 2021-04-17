@@ -1,19 +1,27 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import axios from 'axios';
 
 const Spline = require('cubic-spline');
 
-export default function Newtons_divided() {
+export default function Spline_interpolation() {
 
     const [xl, setXl] = useState(2)
     const [inputtable, setInputtable] = useState(0)
     const [showPoly, setShowPoly] = useState(false)
     const [xfind, setXfind] = useState()
         
-    let x = [2,4,6,8,10]
-    let y = [9.5,8,10.5,39.5,72]
-    let xfindd = 3;
+    let x,y,xfindd;
 
-    const example = () => {
+    const example = async () => {
+        await axios.get('http://localhost:5000/api/exs/SplineInterpolation')
+        .then(res => {
+            x = res.data.x
+            y = res.data.y
+            xfindd = res.data.xfind
+        })
+        .catch(error => {
+            alert("API is turned off.")
+        })
         if(xl == 2){
             document.getElementById(String(0)).value = x[0];
             document.getElementById("y"+String(0)).value = y[0];

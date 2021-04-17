@@ -3,6 +3,7 @@ import Graph from '../../contents/Graph';
 import { functionx } from '../../functionx';
 import { addStyles, EditableMathField } from "react-mathquill";
 import TableIteration from '../../contents/TableIteration';
+import axios from 'axios';
 addStyles()
 
 export default function Bisection() {
@@ -46,10 +47,16 @@ export default function Bisection() {
     ];
         
 
-    const example = () => {
-        setLatex("x^4-13")
-        setXl(1.5)
-        setXr(2)
+    const example = async () => {
+        await axios.get('http://localhost:5000/api/exs/Bisection')
+        .then(res => {
+            setLatex(res.data.latex)
+            setXl(res.data.xl)
+            setXr(res.data.xr)
+        })
+        .catch(error => {
+            alert("API is turned off.")
+        })
     }
 
     const findfx = (x) => {

@@ -3,6 +3,7 @@ import Graph from '../../contents/Graph';
 import { functionx } from '../../functionx';
 import { addStyles, EditableMathField } from "react-mathquill";
 import TableIteration from '../../contents/TableIteration';
+import axios from 'axios';
 
 addStyles()
 
@@ -41,10 +42,16 @@ export default function Newton_Raphson() {
         }
     ];
 
-    const example = () => {
-        setLatex("x^2-7")
-        setXold(2)
-        setXnew(2.75)
+    const example = async () => {
+        await axios.get('http://localhost:5000/api/exs/Secant')
+        .then(res => {
+            setLatex(res.data.latex)
+            setXold(res.data.xold)
+            setXnew(res.data.xnew)
+        })
+        .catch(error => {
+            alert("API is turned off.")
+        })
     }
 
     const findfx = (x) => {

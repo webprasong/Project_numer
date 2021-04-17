@@ -2,6 +2,8 @@ import './App.css';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
+import Home from './components/Home';
+
 import Cramer from './components/pages/linear/Cramer';
 import Gauss_Elimination from './components/pages/linear/Gauss_Elimination';
 import Gauss_Jordan from './components/pages/linear/Gauss_Jordan';
@@ -30,7 +32,10 @@ function App() {
       <Navbar />
       <div className="content">
       <Switch>
-        <Route path='/bisection' exact component={Bisection} />
+
+        <Route exact path='/' component={Home}></Route>
+
+        <Route path='/bisection' component={Bisection} />
         <Route path='/false-position'  component={False_Position} />
         <Route path='/one-point_iteration'  component={One_Point} />
         <Route path='/newton-raphson'  component={Newton_Raphson} />

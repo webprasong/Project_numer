@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import TableIteration from '../../contents/TableIteration';
+import axios from 'axios';
 
 const math = require("mathjs");
 
@@ -20,11 +21,18 @@ export default function Gauss_Seidel() {
         }
     ];
         
-    let exmatrix = [[-2,3,1],[3,4,-5],[1,-2,1]];
-    let exb = [9,0,-4];
-    let exx = [1,1,1];
+    let exmatrix,exb,exx;
 
-    const example = () => {
+    const example = async () => {
+        await axios.get('http://localhost:5000/api/exs/GaussSeidel')
+        .then(res => {
+            exmatrix = res.data.matrix
+            exb = res.data.matrixB
+            exx = res.data.matrixX
+        })
+        .catch(error => {
+            alert("API is turned off.")
+        })
         if(xl == 3){
             for(let i=0;i<xl;i++){
                 let tmp = [];

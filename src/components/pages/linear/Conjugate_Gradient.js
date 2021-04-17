@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import TableIteration from '../../contents/TableIteration';
+import axios from 'axios';
 
 const math = require("mathjs");
 
@@ -20,11 +21,18 @@ export default function Conjugate_Gradient() {
         }
     ];
         
-    let exmatrix = [[5,2,0,0,],[2,5,2,0],[0,2,5,2],[0,0,2,5]];
-    let exb = [12,17,14,7];
-    let exx = [0,0,0,0];
+    let exmatrix,exb,exx;
 
-    const example = () => {
+    const example = async () => {
+        await axios.get('http://localhost:5000/api/exs/ConjugateGradient')
+        .then(res => {
+            exmatrix = res.data.matrix
+            exb = res.data.matrixB
+            exx = res.data.matrixX
+        })
+        .catch(error => {
+            alert("API is turned off.")
+        })
         if(xl == 4){
             for(let i=0;i<xl;i++){
                 let tmp = [];
@@ -96,6 +104,7 @@ export default function Conjugate_Gradient() {
 
             var k = 0;
             while(true){
+
                 var Dtranspose = math.transpose(D);
                 var toplambda = math.multiply(Dtranspose,R);
                 var buttomlambda1 = math.multiply(D,A);
@@ -117,15 +126,15 @@ export default function Conjugate_Gradient() {
                 
 
                 var topalpha = math.multiply(math.transpose(R),buttomlambda1);
+
                 var alpha = math.divide(topalpha,buttomlambda);
 
                 var Dback = math.multiply(alpha,D);
                 var Dfront = math.multiply(R,-1);
                 D = math.add(Dfront,Dback);
-                
+
                 k++;
             }
-
             
             for(let row=0;row<xl;row++){
                 X.push({
