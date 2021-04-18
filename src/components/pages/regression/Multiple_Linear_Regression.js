@@ -27,10 +27,11 @@ export default function Multiple_Linear_Regression() {
             for(let i = 0;i<xl;i++){
                 for(let j=0;j<numx;j++){
                     document.getElementById(String(j)+String(i)).value = x[i][j];
-                    document.getElementById("x"+String(j)).value = xfindd[j]
+                    document.getElementById("x"+String(j)).value = xfindd[j];
                 }
                 document.getElementById("y"+String(i)).value = y[i];
             }
+            setXfind(xfindd)
 
         }
         else{

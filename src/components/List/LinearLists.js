@@ -1,6 +1,6 @@
 export const LinearLists = [
     {
-        title : 'Cramer'+"'"+'s Rule',
+        title : 'Cramer\'s Rule',
         path : '/cramer',
         cName: 'dropdown-link' 
     },

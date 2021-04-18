@@ -52,7 +52,6 @@ export default function Lagrange_polynomaial() {
     const click = () => {
         let Yinput = [];
         let Xinput = [];
-        let X = [];
         let checkempty = false;
         for(let i=0;i<xl;i++){
             Xinput[i] = parseFloat(document.getElementById(String(i)).value);

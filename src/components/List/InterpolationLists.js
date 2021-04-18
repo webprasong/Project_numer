@@ -1,6 +1,6 @@
 export const InterpolationLists = [
     {
-        title : 'Newton'+"'"+'s divided-differences',
+        title : 'Newton\'s divided-differences',
         path : '/newtons_divided',
         cName: 'dropdown-link' 
     },

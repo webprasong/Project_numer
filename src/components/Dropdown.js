@@ -12,19 +12,19 @@ function Dropdown(props){
 
     var Menu;
 
-    if(props.name == "Linear"){
+    if(props.name === "Linear"){
         Menu = LinearLists;
     }
 
-    else if(props.name == "Roots"){
+    else if(props.name === "Roots"){
         Menu = RootsLists;
     }
 
-    else if(props.name == "Interpolation"){
+    else if(props.name === "Interpolation"){
         Menu = InterpolationLists;
     }
 
-    else if(props.name == "Regression"){
+    else if(props.name === "Regression"){
         Menu = RegressionLists;
     }
 

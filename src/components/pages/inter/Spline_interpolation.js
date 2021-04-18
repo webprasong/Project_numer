@@ -54,7 +54,6 @@ export default function Spline_interpolation() {
     const click = () => {
         let Yinput = [];
         let Xinput = [];
-        let X = [];
         let checkempty = false;
         for(let i=0;i<xl;i++){
             Xinput[i] = parseFloat(document.getElementById(String(i)).value);

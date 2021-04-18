@@ -35,7 +35,6 @@ export default function Conjugate_Gradient() {
         })
         if(xl === 4){
             for(let i=0;i<xl;i++){
-                let tmp = [];
                 for(let j=0;j<xl;j++){
                     document.getElementById(String(i)+String(j)).value = exmatrix[i][j];
                 }
@@ -90,62 +89,65 @@ export default function Conjugate_Gradient() {
 
             var positive_definite = true;
 
-            for(let i=1 ;i<A._size[0]+1;i++){
-                let range_matric = math.squeeze(math.range(0,i)._data);
-                let matric_test = math.subset(A, math.index(range_matric,range_matric));
-                if(math.det(matric_test)<0){
-                    positive_definite = false;
-                    break;
+            if(symmatric&&positive_definite){
+
+                for(let i=1 ;i<A._size[0]+1;i++){
+                    let range_matric = math.squeeze(math.range(0,i)._data);
+                    let matric_test = math.subset(A, math.index(range_matric,range_matric));
+                    if(math.det(matric_test)<0){
+                        positive_definite = false;
+                        break;
+                    }
                 }
-            }
 
-            var R = math.add(math.multiply(A,xold),math.multiply(B,-1));
-            var D = math.multiply(R,-1);
+                var R = math.add(math.multiply(A,xold),math.multiply(B,-1));
+                var D = math.multiply(R,-1);
 
-            var k = 0;
-            while(true){
+                while(true){
 
-                var Dtranspose = math.transpose(D);
-                var toplambda = math.multiply(Dtranspose,R);
-                var buttomlambda1 = math.multiply(D,A);
-                var buttomlambda = math.multiply(buttomlambda1,Dtranspose);
+                    var Dtranspose = math.transpose(D);
+                    var toplambda = math.multiply(Dtranspose,R);
+                    var buttomlambda1 = math.multiply(D,A);
+                    var buttomlambda = math.multiply(buttomlambda1,Dtranspose);
 
-                var lambda = math.multiply(math.divide(toplambda,buttomlambda),-1);
-                
-                var xnew = math.add(xold,math.multiply(lambda,D));
+                    var lambda = math.multiply(math.divide(toplambda,buttomlambda),-1);
+                    
+                    var xnew = math.add(xold,math.multiply(lambda,D));
 
-                R = math.add(math.multiply(A,xnew),math.multiply(B,-1));
+                    R = math.add(math.multiply(A,xnew),math.multiply(B,-1));
 
-                xold = xnew;
+                    xold = xnew;
 
-                var E = Math.sqrt(math.multiply(math.transpose(R),R));
+                    var E = Math.sqrt(math.multiply(math.transpose(R),R));
 
-                if(E < 0.001){
-                    break;
+                    if(E < 0.001){
+                        break;
+                    }
+                    
+
+                    var topalpha = math.multiply(math.transpose(R),buttomlambda1);
+
+                    var alpha = math.divide(topalpha,buttomlambda);
+
+                    var Dback = math.multiply(alpha,D);
+                    var Dfront = math.multiply(R,-1);
+                    D = math.add(Dfront,Dback);
+
                 }
                 
-
-                var topalpha = math.multiply(math.transpose(R),buttomlambda1);
-
-                var alpha = math.divide(topalpha,buttomlambda);
-
-                var Dback = math.multiply(alpha,D);
-                var Dfront = math.multiply(R,-1);
-                D = math.add(Dfront,Dback);
-
-                k++;
-            }
+                for(let row=0;row<xl;row++){
+                    X.push({
+                            
+                        id : "X"+(row+1),
+                        value : parseFloat(xnew._data[row].toFixed(6))
+                            
+                    });
+                }
             
-            for(let row=0;row<xl;row++){
-                X.push({
-                        
-                    id : "X"+(row+1),
-                    value : parseFloat(xnew._data[row].toFixed(6))
-                        
-                });
+                setInputtable(X);
+            }else{
+                alert("ไม่เป็น symmatric และ positive definite");
             }
-         
-            setInputtable(X);
         }else{
             alert("ใส่ข้อมูลไม่ครบถ้วน");
         }

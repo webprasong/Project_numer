@@ -12,7 +12,6 @@ const Graph = (props) => {
         var elt = document.getElementById('graph');
         var calculator = Desmos.GraphingCalculator(elt,{
             expressions : false,
-            zoomButtons : false,
             settingsMenu : false,
             zoomButtons : true
         });

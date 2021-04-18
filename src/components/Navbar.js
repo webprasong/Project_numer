@@ -14,8 +14,6 @@ export default function Navbar() {
 
     const handleClick = () => setClick(!click);
 
-    const closeMobileMenu = () => setClick(false);
-
     const onMouseEnter1 = () => setDropdown(true);
     const onMouseLeave1 = () => setDropdown(false);
 

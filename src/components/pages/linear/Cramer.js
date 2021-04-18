@@ -34,7 +34,6 @@ export default function Cramer() {
         })
         if(xl === 3){
             for(let i=0;i<xl;i++){
-                let tmp = [];
                 for(let j=0;j<xl;j++){
                     document.getElementById(String(i)+String(j)).value = exmatrix[i][j];
                 }

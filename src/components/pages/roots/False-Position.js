@@ -59,7 +59,7 @@ export default function False_Position() {
     }
 
     const findfx = (x) => {
-        if(latex != ""){
+        if(latex !== ""){
             var a = functionx(latex,x)
         }
         return a;

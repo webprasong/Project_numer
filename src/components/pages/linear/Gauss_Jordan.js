@@ -34,7 +34,6 @@ export default function Guass_Jordan() {
         })
         if(xl === 3){
             for(let i=0;i<xl;i++){
-                let tmp = [];
                 for(let j=0;j<xl;j++){
                     document.getElementById(String(i)+String(j)).value = exmatrix[i][j];
                 }
@@ -49,7 +48,6 @@ export default function Guass_Jordan() {
         let matrix = [];
         let Bin = [];
         let X = [];
-        let index = [];
         let checkempty = false;
         for(let i=0;i<xl;i++){
             let tmp = [];
