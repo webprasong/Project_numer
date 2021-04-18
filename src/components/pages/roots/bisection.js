@@ -89,7 +89,7 @@ export default function Bisection() {
             else{
                 xll = xm;
             }
-            if(old != null){
+            if(old !== null){
                 e = Math.abs((xm-old)/xm)
             }
             /* console.log(i,xll,xm,xrr,e);  */

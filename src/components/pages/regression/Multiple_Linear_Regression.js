@@ -23,7 +23,7 @@ export default function Multiple_Linear_Regression() {
         .catch(error => {
             alert("API is turned off.")
         })
-        if(xl == 7 && numx == 3){
+        if(xl === 7 && numx === 3){
             for(let i = 0;i<xl;i++){
                 for(let j=0;j<numx;j++){
                     document.getElementById(String(j)+String(i)).value = x[i][j];
@@ -62,17 +62,17 @@ export default function Multiple_Linear_Regression() {
                 checkempty=true;
             }
         } 
-        if(checkempty == false){
+        if(checkempty === false){
             const result2 = multiregress.regression(inputt);
             console.log(result2)
             let fun = "";
             for(let j=numx;j>=0;j--){
-                if(j==0){
+                if(j===0){
                     fun+=parseFloat(result2[j].toFixed(6));
                 }else{
                     fun = fun+parseFloat(result2[j].toFixed(6))+"X^"+j
                 }
-                if(j!=0){
+                if(j!==0){
                     fun+="+"
                 }
             }
@@ -80,7 +80,7 @@ export default function Multiple_Linear_Regression() {
             setInputtable(fun)
             let sum = 0; 
             for(let i = 0;i<=numx;i++){
-                if(i==0){
+                if(i===0){
                     sum += result2[i];
                 }else{
                     sum += result2[i]*xfindall[i-1]

@@ -55,7 +55,7 @@ export default function Newton_Raphson() {
     }
 
     const findfx = (x) => {
-        if(latex != ""){
+        if(latex !== ""){
             var a = functionx(latex,x)
         }
         return a;
@@ -84,7 +84,7 @@ export default function Newton_Raphson() {
             xneww = xnew2;
 
             i++;
-            if(i==10){
+            if(i===10){
                 break;
             }
             

@@ -20,14 +20,14 @@ export default function Newtons_divided() {
         .catch(error => {
             alert("API is turned off.")
         })
-        if(xl == 2){
+        if(xl === 2){
             document.getElementById(String(0)).value = x[0];
             document.getElementById("y"+String(0)).value = y[0];
             document.getElementById(String(1)).value = x[4];
             document.getElementById("y"+String(1)).value = y[4];
             document.getElementById("xfind").value = xfindd;
             setXfind(xfindd);
-        }else if(xl == 3){
+        }else if(xl === 3){
             document.getElementById(String(0)).value = x[0];
             document.getElementById("y"+String(0)).value = y[0];
             document.getElementById(String(1)).value = x[2];
@@ -36,7 +36,7 @@ export default function Newtons_divided() {
             document.getElementById("y"+String(2)).value = y[4];
             document.getElementById("xfind").value = xfindd;
             setXfind(xfindd);
-        }else if(xl == 5){
+        }else if(xl === 5){
             for(let i = 0;i<xl;i++){
                 document.getElementById(String(i)).value = x[i];
                 document.getElementById("y"+String(i)).value = y[i];
@@ -71,16 +71,16 @@ export default function Newtons_divided() {
             checkempty=true;
             console.log("xfind");
         }
-        if(checkempty == false){
+        if(checkempty === false){
             
             var x = Xinput;
             var fx = Yinput;
 
             var C = (x0,x1,dis) => {
-                if(dis == 1){
+                if(dis === 1){
                     return (fx[x1]-fx[x0])/(x[x1]-x[x0]);
                 }
-                else if(dis == 0){
+                else if(dis === 0){
                     return fx[x0];
                 }
                 else{

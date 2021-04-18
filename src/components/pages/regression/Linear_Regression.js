@@ -22,7 +22,7 @@ export default function Linear_Regression() {
         .catch(error => {
             alert("API is turned off.")
         })
-        if(xl == 9){
+        if(xl === 9){
             for(let i = 0;i<xl;i++){
                 document.getElementById(String(i)).value = x[i];
                 document.getElementById("y"+String(i)).value = y[i];
@@ -57,13 +57,13 @@ export default function Linear_Regression() {
             checkempty=true;
             console.log("xfind");
         }
-        if(checkempty == false){
+        if(checkempty === false){
             const result2 = regression.linear(inputt);
             console.log(result2)
             setInputtable(result2.string);
             let sum = 0; 
             for(let i = 0;i<2;i++){
-                if(i==0){
+                if(i===0){
                     sum += result2.equation[i]*xfind
                 }else{
                     sum += result2.equation[i]

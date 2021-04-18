@@ -32,7 +32,7 @@ export default function Cramer() {
         .catch(error => {
             alert("API is turned off.")
         })
-        if(xl == 3){
+        if(xl === 3){
             for(let i=0;i<xl;i++){
                 let tmp = [];
                 for(let j=0;j<xl;j++){
@@ -67,7 +67,7 @@ export default function Cramer() {
         
             index.push(i);
         }
-        if(checkempty == false){
+        if(checkempty === false){
             let A = math.matrix(matrix);
             let B = math.matrix(Bin);
 

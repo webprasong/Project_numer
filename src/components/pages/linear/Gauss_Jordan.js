@@ -32,7 +32,7 @@ export default function Guass_Jordan() {
         .catch(error => {
             alert("API is turned off.")
         })
-        if(xl == 3){
+        if(xl === 3){
             for(let i=0;i<xl;i++){
                 let tmp = [];
                 for(let j=0;j<xl;j++){
@@ -65,7 +65,7 @@ export default function Guass_Jordan() {
                 checkempty=true;
             }
         }
-        if(checkempty == false){
+        if(checkempty === false){
             let res = linSystem.solve(matrix, Bin)
             for(let row=0;row<xl;row++){
                 X.push({

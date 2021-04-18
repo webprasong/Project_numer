@@ -33,7 +33,7 @@ export default function Conjugate_Gradient() {
         .catch(error => {
             alert("API is turned off.")
         })
-        if(xl == 4){
+        if(xl === 4){
             for(let i=0;i<xl;i++){
                 let tmp = [];
                 for(let j=0;j<xl;j++){
@@ -72,7 +72,7 @@ export default function Conjugate_Gradient() {
             }
 
         }
-        if(checkempty == false){
+        if(checkempty === false){
             var A = math.matrix(matrix);
             var B = math.matrix(Bin);
             var xold = math.matrix(Xinput);
@@ -81,7 +81,7 @@ export default function Conjugate_Gradient() {
 
             for(let i=0;i<A._size[0];i++){
                 for(let j=i+1;j<A._size[1];j++){
-                    if(A._data[i][j]!=A._data[j][i]){
+                    if(A._data[i][j]!==A._data[j][i]){
                         symmatric = false;
                         break;
                     }

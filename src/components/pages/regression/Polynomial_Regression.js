@@ -24,7 +24,7 @@ export default function Polynomial_Regression() {
         .catch(error => {
             alert("API is turned off.")
         })
-        if(xl == 9){
+        if(xl === 9){
             for(let i = 0;i<xl;i++){
                 document.getElementById(String(i)).value = x[i];
                 document.getElementById("y"+String(i)).value = y[i];
@@ -64,13 +64,13 @@ export default function Polynomial_Regression() {
         if(isNaN(orderr)){
             checkempty=true;
         }
-        if(checkempty == false){
+        if(checkempty === false){
             const result2 = regression.polynomial(inputt, { order:orderr });
             setInputtable(result2.string);
             let sum = 0; 
             let poww = orderr;
             for(let i = 0;i<=orderr;i++){
-                if(i==orderr){
+                if(i===orderr){
                     sum += result2.equation[i]
                 }else{
                     sum += result2.equation[i]*(Math.pow(xfind,poww))

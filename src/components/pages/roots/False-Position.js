@@ -91,7 +91,7 @@ export default function False_Position() {
                 xrr = x1;
             }
         
-            if(old != null){
+            if(old !== null){
                 e = Math.abs((x1-old)/x1)
             }
 

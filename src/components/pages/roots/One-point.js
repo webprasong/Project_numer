@@ -52,7 +52,7 @@ export default function One_Point() {
     }
 
     const findfx = (x) => {
-        if(latex != ""){
+        if(latex !== ""){
             var a = functionx(latex,x)
         }
         return a;

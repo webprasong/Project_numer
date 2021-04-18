@@ -33,7 +33,7 @@ export default function Jacobi_Iteration() {
         .catch(error => {
             alert("API is turned off.")
         })
-        if(xl == 3){
+        if(xl === 3){
             for(let i=0;i<xl;i++){
                 let tmp = [];
                 for(let j=0;j<xl;j++){
@@ -72,7 +72,7 @@ export default function Jacobi_Iteration() {
             }
 
         }
-        if(checkempty == false){
+        if(checkempty === false){
             var A = math.matrix(matrix);
             var B = math.matrix(Bin);
             var xold = Xinput;
@@ -84,7 +84,7 @@ export default function Jacobi_Iteration() {
                 for(let i = 0 ; i < B._size[0] ; i++){
                     var x = B._data[i];
                     for(let j = 0; j < A._size[0] ; j++){
-                        if(i!=j){
+                        if(i!==j){
                             x -=  (A._data[i][j]*xold[j]);
                         }
                     }
@@ -97,12 +97,12 @@ export default function Jacobi_Iteration() {
                     check = check && (Math.abs((xnow[i]-xold[i])/xnow[i])<0.000001);
                     i++;
                 }
-                if(check == true){
+                if(check === true){
                     break;
                 }
                 xold = xnow;
                 iteration++;
-                if(iteration == 20){
+                if(iteration === 20){
                     break;
                 }
             }

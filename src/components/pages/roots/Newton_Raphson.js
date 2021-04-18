@@ -56,9 +56,9 @@ export default function Newton_Raphson() {
     }
 
     const findfx = (x,num) => {
-        if(latex != ""){
+        if(latex !== ""){
             var a;
-            if(num == 0){
+            if(num === 0){
                 a = functionx(latex,x)
             }else{
                 const latex_changed = new AlgebraLatex().parseLatex(latex)
@@ -95,7 +95,7 @@ export default function Newton_Raphson() {
             xoldd = xnew;
 
             i++;
-            if(i==10){
+            if(i===10){
                 break;
             }
             

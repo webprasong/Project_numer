@@ -32,7 +32,7 @@ export default function Guass_Elimination() {
         .catch(error => {
             alert("API is turned off.")
         })
-        if(xl == 3){
+        if(xl === 3){
             for(let i=0;i<xl;i++){
                 let tmp = [];
                 for(let j=0;j<xl;j++){
@@ -66,7 +66,7 @@ export default function Guass_Elimination() {
             matrix.push(tmp);
             index.push(i);
         }
-        if(checkempty == false){
+        if(checkempty === false){
             let res = gauss(matrix)
             for(let row=0;row<xl;row++){
                 X.push({
