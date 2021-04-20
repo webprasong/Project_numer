@@ -24,7 +24,7 @@ export default function Polynomial_Regression() {
         .catch(error => {
             alert("API is turned off.")
         })
-        if(xl === 9){
+        if(parseInt(xl) === 9){
             for(let i = 0;i<xl;i++){
                 document.getElementById(String(i)).value = x[i];
                 document.getElementById("y"+String(i)).value = y[i];

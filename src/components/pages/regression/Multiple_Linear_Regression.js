@@ -8,10 +8,10 @@ export default function Multiple_Linear_Regression() {
     const [xl, setXl] = useState(2)
     const [numx, setNumx] = useState(2)
     const [inputtable, setInputtable] = useState(0)
-    const [xfind, setXfind] = useState()
     const [ressult, setRessult] = useState(0)
-        
-    let x,y,xfindd;
+    const [xshowmain, setXshowmain] = useState("")
+
+    let x,y,xfindd=[],a;
 
     const example = async () => {
         await axios.get('http://localhost:5000/api/exs/MultipleLinearRegression')
@@ -23,16 +23,21 @@ export default function Multiple_Linear_Regression() {
         .catch(error => {
             alert("API is turned off.")
         })
-        if(xl === 7 && numx === 3){
+        if(parseInt(xl) === 7 && parseInt(numx) === 3){
             for(let i = 0;i<xl;i++){
+                a = ""
                 for(let j=0;j<numx;j++){
                     document.getElementById(String(j)+String(i)).value = x[i][j];
                     document.getElementById("x"+String(j)).value = xfindd[j];
+                    a += xfindd[j]
+                    if(j!==numx-1){
+                        a += "." 
+                    }
                 }
                 document.getElementById("y"+String(i)).value = y[i];
             }
-            setXfind(xfindd)
-
+            console.log(a);
+            setXshowmain(a);
         }
         else{
             alert("ต้องระบุจำนวน x = 3 และ จำนวนจุด = 7");
@@ -65,7 +70,6 @@ export default function Multiple_Linear_Regression() {
         } 
         if(checkempty === false){
             const result2 = multiregress.regression(inputt);
-            console.log(result2)
             let fun = "";
             for(let j=numx;j>=0;j--){
                 if(j===0){
@@ -77,7 +81,6 @@ export default function Multiple_Linear_Regression() {
                     fun+="+"
                 }
             }
-            console.log(fun)
             setInputtable(fun)
             let sum = 0; 
             for(let i = 0;i<=numx;i++){
@@ -86,7 +89,6 @@ export default function Multiple_Linear_Regression() {
                 }else{
                     sum += result2[i]*xfindall[i-1]
                 }
-                console.log(sum)
             }
             setRessult(parseFloat(sum.toFixed(6)))
         }else{
@@ -166,7 +168,7 @@ export default function Multiple_Linear_Regression() {
                     </div>
                     <br/>
                     <div>f(x) : {inputtable}</div>
-                    <div>f({isNaN(xfind) ? "":xfind}) : {ressult}</div>
+                    <div>f({xshowmain}) : {ressult}</div>
                 </div> 
             </div>
         </div>

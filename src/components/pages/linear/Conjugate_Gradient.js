@@ -33,7 +33,7 @@ export default function Conjugate_Gradient() {
         .catch(error => {
             alert("API is turned off.")
         })
-        if(xl === 4){
+        if(parseInt(xl) === 4){
             for(let i=0;i<xl;i++){
                 for(let j=0;j<xl;j++){
                     document.getElementById(String(i)+String(j)).value = exmatrix[i][j];

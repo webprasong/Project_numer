@@ -6,7 +6,7 @@ services:
         build: .
         restart: always
         ports:
-            - 3000:3000
+            - 80:80
     server:
         container_name: server2
         build: ./Server

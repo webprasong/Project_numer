@@ -20,14 +20,14 @@ export default function Lagrange_polynomaial() {
         .catch(error => {
             alert("API is turned off.")
         })
-        if(xl === 2){
+        if(parseInt(xl) === 2){
             document.getElementById(String(0)).value = x[0];
             document.getElementById("y"+String(0)).value = y[0];
             document.getElementById(String(1)).value = x[4];
             document.getElementById("y"+String(1)).value = y[4];
             document.getElementById("xfind").value = xfindd;
             setXfind(xfindd);
-        }else if(xl === 3){
+        }else if(parseInt(xl) === 3){
             document.getElementById(String(0)).value = x[0];
             document.getElementById("y"+String(0)).value = y[0];
             document.getElementById(String(1)).value = x[2];
@@ -36,7 +36,7 @@ export default function Lagrange_polynomaial() {
             document.getElementById("y"+String(2)).value = y[4];
             document.getElementById("xfind").value = xfindd;
             setXfind(xfindd);
-        }else if(xl === 5){
+        }else if(parseInt(xl) === 5){
             for(let i = 0;i<xl;i++){
                 document.getElementById(String(i)).value = x[i];
                 document.getElementById("y"+String(i)).value = y[i];

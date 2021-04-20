@@ -32,7 +32,7 @@ export default function Cramer() {
         .catch(error => {
             alert("API is turned off.")
         })
-        if(xl === 3){
+        if(parseInt(xl) === 3){
             for(let i=0;i<xl;i++){
                 for(let j=0;j<xl;j++){
                     document.getElementById(String(i)+String(j)).value = exmatrix[i][j];
