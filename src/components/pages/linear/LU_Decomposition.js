@@ -24,7 +24,7 @@ export default function LU_Decomposition() {
     let exmatrix,exb;
 
     const example = async () => {
-        await axios.get('http://localhost:5000/api/exs/LUDecomposition')
+        await axios.get('http://localhost:5000/api/exs/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9/LUDecomposition')
         .then(res => {
             exmatrix = res.data.matrix
             exb = res.data.matrixB

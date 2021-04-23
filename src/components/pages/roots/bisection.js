@@ -48,7 +48,7 @@ export default function Bisection() {
         
 
     const example = async () => {
-        await axios.get('http://localhost:5000/api/exs/Bisection')
+        await axios.get('http://localhost:5000/api/exs/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9/Bisection')
         .then(res => {
             setLatex(res.data.latex)
             setXl(res.data.xl)

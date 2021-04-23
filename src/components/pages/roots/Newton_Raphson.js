@@ -45,7 +45,7 @@ export default function Newton_Raphson() {
     ];
 
     const example = async () => {
-        await axios.get('http://localhost:5000/api/exs/NewtonRaphson')
+        await axios.get('http://localhost:5000/api/exs/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9/NewtonRaphson')
         .then(res => {
             setLatex(res.data.latex)
             setXold(res.data.xold)

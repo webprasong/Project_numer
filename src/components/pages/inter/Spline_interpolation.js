@@ -13,7 +13,7 @@ export default function Spline_interpolation() {
     let x,y,xfindd;
 
     const example = async () => {
-        await axios.get('http://localhost:5000/api/exs/SplineInterpolation')
+        await axios.get('http://localhost:5000/api/exs/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9/SplineInterpolation')
         .then(res => {
             x = res.data.x
             y = res.data.y

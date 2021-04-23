@@ -20,5 +20,5 @@ export default function TableIteration(props) {
 TableIteration.defaultProps = {
   widthh: "1200px",
   heightt: "650px",
-  pages: 10
+  pages: 15
 };

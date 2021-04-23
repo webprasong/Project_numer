@@ -24,7 +24,7 @@ export default function Guass_Jordan() {
     let exmatrix,exb;
 
     const example = async () => {
-        await axios.get('http://localhost:5000/api/exs/GuassJordan')
+        await axios.get('http://localhost:5000/api/exs/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9/GuassJordan')
         .then(res => {
             exmatrix = res.data.matrix
             exb = res.data.matrixB

@@ -11,7 +11,7 @@ export default function Lagrange_polynomaial() {
     let x,y,xfindd;
 
     const example = async () => {
-        await axios.get('http://localhost:5000/api/exs/LagrangePolynomaial')
+        await axios.get('http://localhost:5000/api/exs/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9/LagrangePolynomaial')
         .then(res => {
             x = res.data.x
             y = res.data.y

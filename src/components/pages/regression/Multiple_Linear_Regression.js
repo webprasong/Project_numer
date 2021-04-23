@@ -14,7 +14,7 @@ export default function Multiple_Linear_Regression() {
     let x,y,xfindd=[],a;
 
     const example = async () => {
-        await axios.get('http://localhost:5000/api/exs/MultipleLinearRegression')
+        await axios.get('http://localhost:5000/api/exs/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9/MultipleLinearRegression')
         .then(res => {
             x = res.data.x
             y = res.data.y

@@ -24,7 +24,7 @@ export default function Conjugate_Gradient() {
     let exmatrix,exb,exx;
 
     const example = async () => {
-        await axios.get('http://localhost:5000/api/exs/ConjugateGradient')
+        await axios.get('http://localhost:5000/api/exs/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9/ConjugateGradient')
         .then(res => {
             exmatrix = res.data.matrix
             exb = res.data.matrixB

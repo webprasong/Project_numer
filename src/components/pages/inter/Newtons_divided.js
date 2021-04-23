@@ -11,7 +11,7 @@ export default function Newtons_divided() {
     let x,y,xfindd;
 
     const example = async () => {
-        await axios.get('http://localhost:5000/api/exs/NewtonsDivided')
+        await axios.get('http://localhost:5000/api/exs/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9/NewtonsDivided')
         .then(res => {
             x = res.data.x
             y = res.data.y

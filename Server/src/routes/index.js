@@ -3,12 +3,12 @@ const exController = require('../controllers/exController')
 const routes = [
   {
     method: 'GET',
-    url: '/api/exs',
+    url: '/api/exs/:token',
     handler: exController.getExs
   },
   {
     method: 'GET',
-    url: '/api/exs/:name',
+    url: '/api/exs/:token/:name',
     handler: exController.getSingleEx,
     schema:{
       params:{

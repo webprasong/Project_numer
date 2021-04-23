@@ -24,7 +24,7 @@ export default function Cramer() {
     let exmatrix,exb;
 
     const example = async () => {
-        await axios.get('http://localhost:5000/api/exs/Cramer')
+        await axios.get('http://localhost:5000/api/exs/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9/Cramer')
         .then(res => {
             exmatrix = res.data.matrix
             exb = res.data.matrixB

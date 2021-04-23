@@ -13,7 +13,7 @@ export default function Linear_Regression() {
     let x,y,xfindd;
 
     const example = async () => {
-        await axios.get('http://localhost:5000/api/exs/LinearRegression')
+        await axios.get('http://localhost:5000/api/exs/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9/LinearRegression')
         .then(res => {
             x = res.data.x
             y = res.data.y

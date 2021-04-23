@@ -47,7 +47,7 @@ export default function False_Position() {
     ];
 
     const example = async () => {
-        await axios.get('http://localhost:5000/api/exs/FalsePosition')
+        await axios.get('http://localhost:5000/api/exs/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9/FalsePosition')
         .then(res => {
             setLatex(res.data.latex)
             setXl(res.data.xl)

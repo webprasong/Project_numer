@@ -14,7 +14,7 @@ export default function Polynomial_Regression() {
     let x,y,xfindd,ooder;
 
     const example = async() => {
-        await axios.get('http://localhost:5000/api/exs/PolynomialRegression')
+        await axios.get('http://localhost:5000/api/exs/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9/PolynomialRegression')
         .then(res => {
             x = res.data.x
             y = res.data.y

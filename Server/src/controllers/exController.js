@@ -7,8 +7,11 @@ const Example = require('../models/example')
 // Get all cars
 exports.getExs = async (req, reply) => {
   try {
-    const Exam = await Example.find()
-    return Exam
+    if(req.params.token == "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"){
+      const Exam = await Example.find()
+      return Exam;
+    }
+    return reply.send({ error: 'Token invaild' })
   } catch (err) {
     throw boom.boomify(err)
   }
@@ -17,11 +20,11 @@ exports.getExs = async (req, reply) => {
 // Get single car by ID
 exports.getSingleEx = async (req, reply) => {
   try {
-    /* const name = req.params.name */
-    const ex = await Example.findOne({ name : req.params.name })
-    /* console.log("<---------------------------------------------->");
-    console.log(ex) */
-    return ex
+    if(req.params.token == "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"){
+      const ex = await Example.findOne({ name : req.params.name })
+      return ex
+    }
+    return reply.send({ error: 'Token invaild' })
   } catch (err) {
     throw boom.boomify(err)
   }

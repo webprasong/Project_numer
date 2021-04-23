@@ -24,7 +24,7 @@ export default function Jacobi_Iteration() {
     let exmatrix,exb,exx;
 
     const example = async () => {
-        await axios.get('http://localhost:5000/api/exs/JacobiIteration')
+        await axios.get('http://localhost:5000/api/exs/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9/JacobiIteration')
         .then(res => {
             exmatrix = res.data.matrix
             exb = res.data.matrixB

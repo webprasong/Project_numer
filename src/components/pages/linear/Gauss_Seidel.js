@@ -24,7 +24,7 @@ export default function Gauss_Seidel() {
     let exmatrix,exb,exx;
 
     const example = async () => {
-        await axios.get('http://localhost:5000/api/exs/GaussSeidel')
+        await axios.get('http://localhost:5000/api/exs/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9/GaussSeidel')
         .then(res => {
             exmatrix = res.data.matrix
             exb = res.data.matrixB
