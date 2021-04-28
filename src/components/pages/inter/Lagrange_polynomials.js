@@ -36,16 +36,15 @@ export default function Lagrange_polynomaial() {
             document.getElementById("y"+String(2)).value = y[4];
             document.getElementById("xfind").value = xfindd;
             setXfind(xfindd);
-        }else if(parseInt(xl) === 5){
-            for(let i = 0;i<xl;i++){
+        }else{
+            setXl(5)
+            for(let i = 0;i<x.length;i++){
                 document.getElementById(String(i)).value = x[i];
                 document.getElementById("y"+String(i)).value = y[i];
             }
             document.getElementById("xfind").value = xfindd;
             setXfind(xfindd);
-        }
-        else{
-            alert("ต้องระบุ จำนวนจุด = 5");
+            document.getElementsByName("nummatrix")[0].value = "5";
         }
     }
 

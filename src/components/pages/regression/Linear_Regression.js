@@ -22,17 +22,14 @@ export default function Linear_Regression() {
         .catch(error => {
             alert("API is turned off.")
         })
-        if(parseInt(xl) === 9){
-            for(let i = 0;i<xl;i++){
-                document.getElementById(String(i)).value = x[i];
-                document.getElementById("y"+String(i)).value = y[i];
-            }
-            document.getElementById("xfind").value = xfindd;
-            setXfind(xfindd);
+        setXl(9)
+        for(let i = 0;i<x.length;i++){
+            document.getElementById(String(i)).value = x[i];
+            document.getElementById("y"+String(i)).value = y[i];
         }
-        else{
-            alert("ต้องระบุ จำนวนจุด = 9 ");
-        }
+        document.getElementById("xfind").value = xfindd;
+        setXfind(xfindd);
+        document.getElementsByName("nummatrix")[0].value = "9";
     }
 
     const click = () => {

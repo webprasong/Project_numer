@@ -33,16 +33,13 @@ export default function Conjugate_Gradient() {
         .catch(error => {
             alert("API is turned off.")
         })
-        if(parseInt(xl) === 4){
-            for(let i=0;i<xl;i++){
-                for(let j=0;j<xl;j++){
-                    document.getElementById(String(i)+String(j)).value = exmatrix[i][j];
-                }
-                document.getElementById(String(i)).value = exb[i];
-                document.getElementById("x"+String(i)).value = exx[i];
+        setXl(4)
+        for(let i=0;i<exb.length;i++){
+            for(let j=0;j<exb.length;j++){
+                document.getElementById(String(i)+String(j)).value = exmatrix[i][j];
             }
-        }else{
-            alert("ต้องระบุขนาด matrix เท่ากับ 4");
+            document.getElementById(String(i)).value = exb[i];
+            document.getElementById("x"+String(i)).value = exx[i];
         }
     }
 
@@ -155,34 +152,36 @@ export default function Conjugate_Gradient() {
     }
 
     const show = (num) => {
-        let matrixInput = [];
-        let Binput =[];
-        let Xinput = [];
-        for(let i=0;i<num;i++){
-            let row = []
-            for(let j=0;j<num;j++){
-                row.push(<input type="text" id={String(i)+String(j)} className="inputmatrix" style={{width:"50px"}}></input>)
+        if(num>=2 && num<=6){
+            let matrixInput = [];
+            let Binput =[];
+            let Xinput = [];
+            for(let i=0;i<num;i++){
+                let row = []
+                for(let j=0;j<num;j++){
+                    row.push(<input type="text" id={String(i)+String(j)} className="inputmatrix" style={{width:"50px"}}></input>)
+                }
+                row.push(<br/>)
+                matrixInput.push(row);
             }
-            row.push(<br/>)
-            matrixInput.push(row);
+            for(let i=0;i<num;i++){
+                Binput.push(<input type="text" id={String(i)} className="Binput" style={{width:"50px"}} ></input>)
+                Binput.push(<br/>)
+                Xinput.push(<span>{"X"+(i+1)} : </span>)
+                Xinput.push(<input type="text" id={"x"+String(i)} className="Binput" style={{width:"50px", marginRight:"5px"}} ></input>)
+            }
+            return (
+                        <div>
+                        <div className="matrix" style={{display:"flex", justifyContent:"center",marginTop:"20px"}}> 
+                            A = <div className="Input" style={{marginRight:"20px"}}>{matrixInput}</div> 
+                            B = <div className="InputB">{Binput}</div>
+                        </div>
+                        <div className="xinput" style={{marginTop:"20px"}}>
+                            {Xinput}
+                        </div>
+                        </div>
+                    )
         }
-        for(let i=0;i<num;i++){
-            Binput.push(<input type="text" id={String(i)} className="Binput" style={{width:"50px"}} ></input>)
-            Binput.push(<br/>)
-            Xinput.push(<span>{"X"+(i+1)} : </span>)
-            Xinput.push(<input type="text" id={"x"+String(i)} className="Binput" style={{width:"50px", marginRight:"5px"}} ></input>)
-        }
-        return (
-                    <div>
-                    <div className="matrix" style={{display:"flex", justifyContent:"center",marginTop:"20px"}}> 
-                        A = <div className="Input" style={{marginRight:"20px"}}>{matrixInput}</div> 
-                        B = <div className="InputB">{Binput}</div>
-                    </div>
-                    <div className="xinput" style={{marginTop:"20px"}}>
-                        {Xinput}
-                    </div>
-                    </div>
-                )
     }
 
     return (
@@ -192,15 +191,9 @@ export default function Conjugate_Gradient() {
                     <h1>Conjugate Gradient</h1>
                     <div className='content_in'>
                         ขนาดของ matrix (2-6) : 
-                        <select name="numofmatrix" onChange={(e)=>{
+                        <input type="number" name="numofmatrix" onChange={(e)=>{
                             setXl(e.target.value)
-                        }}>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4" selected>4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                        </select>
+                        }} value={xl}/>
                     </div>
                     {show(xl)}
                     <div className='content_in' onClick={example} style={{background:"orange", width:"400px",marginLeft: "15%",height:"40px"}}>

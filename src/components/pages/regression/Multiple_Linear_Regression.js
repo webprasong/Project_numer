@@ -23,25 +23,23 @@ export default function Multiple_Linear_Regression() {
         .catch(error => {
             alert("API is turned off.")
         })
-        if(parseInt(xl) === 7 && parseInt(numx) === 3){
-            for(let i = 0;i<xl;i++){
-                a = ""
-                for(let j=0;j<numx;j++){
-                    document.getElementById(String(j)+String(i)).value = x[i][j];
-                    document.getElementById("x"+String(j)).value = xfindd[j];
-                    a += xfindd[j]
-                    if(j!==numx-1){
-                        a += "." 
-                    }
+        setXl(7)
+        setNumx(3)
+        for(let i = 0;i<x.length;i++){
+            a = ""
+            for(let j=0;j<x[0].length;j++){
+                document.getElementById(String(j)+String(i)).value = x[i][j];
+                document.getElementById("x"+String(j)).value = xfindd[j];
+                a += xfindd[j]
+                if(j!==numx-1){
+                    a += "." 
                 }
-                document.getElementById("y"+String(i)).value = y[i];
             }
-            console.log(a);
-            setXshowmain(a);
+            document.getElementById("y"+String(i)).value = y[i];
         }
-        else{
-            alert("ต้องระบุจำนวน x = 3 และ จำนวนจุด = 7");
-        }
+        setXshowmain(a);
+        document.getElementsByName("numX")[0].value = "3";
+        document.getElementsByName("nummatrix")[0].value = "7";
     }
 
     const click = () => {
