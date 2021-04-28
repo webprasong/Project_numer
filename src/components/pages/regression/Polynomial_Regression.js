@@ -24,19 +24,15 @@ export default function Polynomial_Regression() {
         .catch(error => {
             alert("API is turned off.")
         })
-        if(parseInt(xl) === 9){
-            for(let i = 0;i<xl;i++){
-                document.getElementById(String(i)).value = x[i];
-                document.getElementById("y"+String(i)).value = y[i];
-            }
-            document.getElementById("xfind").value = xfindd;
-            setXfind(xfindd);
-            document.getElementById("orderr").value = ooder;
-            setOrderr(ooder);
+        setXl(9);
+        for(let i = 0;i<x.length;i++){
+            document.getElementById(String(i)).value = x[i];
+            document.getElementById("y"+String(i)).value = y[i];
         }
-        else{
-            alert("ต้องระบุ จำนวนจุด = 9");
-        }
+        document.getElementById("xfind").value = xfindd;
+        setXfind(xfindd);
+        document.getElementById("orderr").value = ooder;
+        setOrderr(ooder);
     }
 
     const click = () => {
@@ -122,19 +118,11 @@ export default function Polynomial_Regression() {
             <div className="top">
                 <div className='left_content' style={{height:String(430+(xl*29))+"px"}}>
                     <h1>Polynomial Regression</h1>
-                    <div><span>จำนวนจุด : </span><select name="nummatrix" style={{marginTop:"20px"}} onChange={(e)=>{
+                    <div><span>จำนวนจุด : </span>
+                        <input type="number" name="nummatrix" onChange={(e)=>{
                             setXl(e.target.value)
-                        }}>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                        </select></div>
+                        }} value={xl}/>
+                        </div>
                     {show()}
                     <div className='content_in' onClick={example} style={{background:"orange", width:"400px",marginLeft: "15%",height:"40px"}}>
                         Example
