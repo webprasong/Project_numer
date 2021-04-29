@@ -85,48 +85,48 @@ export default function LU_Decomposition() {
             for(let i=0;i<num;i++){
                 let row = []
                 for(let j=0;j<num;j++){
-                    row.push(<input type="text" id={String(i)+String(j)} className="inputmatrix" style={{width:"50px"}}></input>)
+                    row.push(<input type="text" id={String(i)+String(j)} key={String(i)+String(j)} className="inputmatrix" style={{width:"50px"}}></input>)
                 }
-                row.push(<br/>)
+                row.push(<br key={"br2"+String(i)}/>)
                 matrixInput.push(row);
             }
             for(let i=0;i<num;i++){
-                Binput.push(<input type="text" id={String(i)} className="Binput" style={{width:"50px"}} ></input>)
-                Binput.push(<br/>)
+                Binput.push(<input type="text" id={String(i)} key={String(i)} className="Binput" style={{width:"50px"}} ></input>)
+                Binput.push(<br key={"br"+String(i)}/>)
             }
             return (
-                        <div className="matrix" style={{display:"flex", justifyContent:"center",marginTop:"20px"}}> 
-                            A = <div className="Input" style={{marginRight:"20px"}}>{matrixInput}</div> 
-                            B = <div className="InputB">{Binput}</div>
+                        <div className="matrix" key="matrix" style={{display:"flex", justifyContent:"center",marginTop:"20px"}}> 
+                            A = <div className="Input" key="A" style={{marginRight:"20px"}}>{matrixInput}</div> 
+                            B = <div className="InputB" key="B">{Binput}</div>
                         </div>
                     )
         }
     }
 
     return (
-        <div className="contentbi">
-            <div className="top">
-                <div className='left_content'>
+        <div className="contentbi" key="contentbi">
+            <div className="top" key="top">
+                <div className='left_content' key="left_content">
                     <h1>LU_Decomposition</h1>
-                    <div className='content_in'>
+                    <div className='content_in' key="content_in">
                         ขนาดของ matrix (2-6) : 
                         <input type="number" name="numofmatrix" onChange={(e)=>{
                             setXl(e.target.value)
                         }} value={xl}/>
                     </div>
                     {show(xl)}
-                    <div className='content_in' onClick={example} style={{background:"orange", width:"400px",marginLeft: "15%",height:"40px"}}>
+                    <div className='content_in' key="content_in2" data-testid="button" onClick={example} style={{background:"orange", width:"400px",marginLeft: "15%",height:"40px"}}>
                         Example
                     </div>
-                    <div className='content_in' onClick={click} style={{background:"green", width:"400px",marginLeft: "15%",height:"40px"}}>
+                    <div className='content_in' key="content_in3" onClick={click} style={{background:"green", width:"400px",marginLeft: "15%",height:"40px"}}>
                         Calculate
                     </div>
                 </div> 
-                <div className="down_rigth">
-                    <div className="downtable">
+                <div className="down_rigth" key="down_rigth">
+                    <div className="downtable" key="downtable">
                         <TableIteration columns={column} rows={inputtable} widthh="400px" heightt="400px" pages={parseInt(xl)}/>
                     </div>
-                <div style={{color:"white",display:"flex",justifyContent: "center",paddingTop:"20px"}}>ค่าที่ได้เป็นทศนิยม 6 ตำแหน่ง</div>
+                <div key="textt" style={{color:"white",display:"flex",justifyContent: "center",paddingTop:"20px"}}>ค่าที่ได้เป็นทศนิยม 6 ตำแหน่ง</div>
             </div>
             </div>
         </div>
