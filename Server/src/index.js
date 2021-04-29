@@ -42,6 +42,6 @@ mongoose.connect('mongodb+srv://numer2:numer2123@projectnumer.je0yw.mongodb.net/
  .then(() => console.log('Success'))
  .catch(err => console.log(err))
 
- routes.forEach((route, index) => {
+ routes.forEach((route) => {
     fastify.route(route)
 })

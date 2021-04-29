@@ -4,7 +4,18 @@ const routes = [
   {
     method: 'GET',
     url: '/api/exs/:token',
-    handler: exController.getExs
+    handler: exController.getExs,
+    schema:{
+      params:{
+        type: 'object',
+        properties:{
+          token:{
+            type: 'string',
+            description: 'Token'
+          }
+        }
+      }
+    }
   },
   {
     method: 'GET',
@@ -17,7 +28,10 @@ const routes = [
           name:{
             type: 'string',
             description: 'Name of Method'
-          },
+          },token:{
+            type: 'string',
+            description: 'Token'
+          }
         }
       }
     }
