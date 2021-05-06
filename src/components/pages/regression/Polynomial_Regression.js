@@ -56,13 +56,16 @@ export default function Polynomial_Regression() {
         if(isNaN(xfind)){
             checkempty=true;
         }
-        setOrderr(parseFloat(document.getElementById("orderr").value));
+        let or = parseFloat(document.getElementById("orderr").value);
+        setOrderr(or);
         if(isNaN(orderr)){
             checkempty=true;
         }
         if(checkempty === false){
-            const result2 = regression.polynomial(inputt, { order:orderr });
+            const result2 = regression.polynomial(inputt, { order:or });
             setInputtable(result2.string);
+            console.log(result2.string);
+            console.log("inputt : "+inputt);
             let sum = 0; 
             let poww = orderr;
             for(let i = 0;i<=orderr;i++){

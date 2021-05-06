@@ -8,6 +8,7 @@ export default function Conjugate_Gradient() {
 
     const [xl, setXl] = useState(4)
     const [inputtable, setInputtable] = useState([])
+    const [er, setEr] = useState("")
 
     var column = [
         {
@@ -143,6 +144,7 @@ export default function Conjugate_Gradient() {
             
                 setInputtable(X);
             }else{
+                setEr("ไม่เป็น symmatric และ positive definite")
                 alert("ไม่เป็น symmatric และ positive definite");
             }
         }else{
@@ -202,6 +204,7 @@ export default function Conjugate_Gradient() {
                     <div className='content_in' onClick={click} style={{background:"green", width:"400px",marginLeft: "15%",height:"40px"}}>
                         Calculate
                     </div>
+                    {er}
                 </div> 
                 <div className="down_rigth">
                     <div className="downtable">

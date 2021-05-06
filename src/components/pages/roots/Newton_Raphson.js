@@ -63,7 +63,8 @@ export default function Newton_Raphson() {
             }else{
                 const latex_changed = new AlgebraLatex().parseLatex(latex)
                 let fx_new = latex_changed.toMath();
-                let fx_deri = derivative(fx_new,'x');
+                let b = fx_new.replaceAll("ln","log");
+                let fx_deri = derivative(b,'x');
                 let find = {
                     x : x
                 }
